@@ -1,0 +1,16 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+<p>{{ podatak }}</p>
+<nav>
+    <ul>
+        {% for category in categories %}
+            <li>
+                <a href="/category/{{ category.category_id }}">
+                    {{ category.name|escape|title }}
+                </a>
+        {% endfor %}
+    </ul>
+</nav>
+<p>Vreme: {{ "now"|date("d. m. Y. H.i", timezone="Europe/Belgrade") }}</p>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% htmlcompress %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Auctions</title>
+
+        <link rel="stylesheet" href="/assets/css/main.css" type="text/css">
+    </head>
+    <body>
+        <header>
+            NAVIGACIJA
+        </header>
+
+        <!-- MAIN START -->
+        <main>
+            {% block main %}
+            {% endblock %}
+        </main>
+        <!-- MAIN END -->
+
+        <div class="bookmarks">Loading bookmarks...</div>
+
+        <footer>
+            &copy; 2021 Bogdan Jovanović
+        </footer>
+
+        <script src="/assets/js/bookmark.js"></script>
+    </body>
+</html>
+{% endhtmlcompress %}

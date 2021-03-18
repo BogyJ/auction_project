@@ -1,0 +1,19 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+    <h1>{{ category.name|escape }}</h1>
+    <ul>
+        {% if auctionsInCategory %}
+        <p>Spisak aukcija u ovoj kategoriji su:</p>
+            {% for auction in auctionsInCategory %}
+                <li>
+                    <a href="/auction/{{ auction.auction_id }}">
+                        {{ auction.title|escape }}
+                    </a><br>
+                    {{ auction.description|escape }}
+            {% endfor %}
+        {% else %}
+            <p>Nema aktivnih aukcija za izabranu kategoriju!</p>
+        {% endif %}
+    </ul>
+{% endblock %}

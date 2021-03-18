@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Auctions</title>
+	</head>
+	<style type="text/css">
+		pre {
+			font-size: 20px;
+		}
+	</style>
+	<body>
+		<div>
+			ID aukcije: <input type="number" min="1" step="1" id="auction-id">
+			<button type="button" onclick="getAuctionData();">Get auction data</button>
+		</div>
+		<pre id="auction-data"></pre>
+
+		<script type="text/javascript">
+			function getAuctionData() {
+				const auctionId = document.getElementById('auction-id').value;
+
+				fetch('http://127.0.0.1/api/auction/' + auctionId)
+				.then(result => result.json())
+				.then(data => {
+					showReceivedData(data);
+				});
+			}
+
+			function showReceivedData(data) {
+				let message = document.getElementById('auction-data');
+				if (data.auction === false) {
+					message.innerHTML = 'Ne postoji aukcija!';
+					return;
+				}
+				
+				message.innerHTML = JSON.stringify(data.auction, 0, 4);
+			}
+		</script>
+	</body>
+</html>

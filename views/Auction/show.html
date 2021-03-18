@@ -1,0 +1,10 @@
+{% extends "_global/index.html" %}
+
+{% block main %}
+    <button onclick="addBookmark({{ auction.auction_id }});">Add to bookmark</button>
+    <h1>{{ auction.title|escape }}</h1>
+    <p>{{ auction.description|escape }}</p>
+    <p>Poslednja licitirana cena: {{ lastOfferPrice }} EUR</p>
+    <p>Datum pocetka: {{ auction.created_at|date('j. n. Y.') }}</p>
+    <p>Datum kraja: {{ auction.expires_at|date('j. n. Y.') }}</p>
+{% endblock %}
